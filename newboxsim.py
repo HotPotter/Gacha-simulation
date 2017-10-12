@@ -11,7 +11,7 @@ class BoxSim():
         self.result = defaultdict(list)
         self.make_hero_pool()
 
-    def simulate(self): # FIXME, 不同的停止条件
+    def simulate(self): # FIXME, stop condition
         while True:
             self.num_boxes += 1
             if self.has_reward():
@@ -25,7 +25,7 @@ class BoxSim():
         pass
 
     def make_hero_pool(self):
-        '''英雄奖池'''
+        '''hero pool'''
         pool = []
         for hero_name, num in self.heroes.items():
             pool += [hero_name] * num
@@ -71,7 +71,7 @@ def simulate(num_players):
     return result
 
 def main():
-    result = simulate(1)
+    result = simulate(1) #times of simulation
     print('result: ', result)
 
 if __name__ == '__main__':
