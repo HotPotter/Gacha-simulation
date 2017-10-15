@@ -29,7 +29,7 @@ def simulate_open_boxes():
         #print(result) # print hero formation after each box
         #print(reward) # print fragments drawn from each box
 
-        if num_boxes > 9: # FIXME stop condition
+        if num_boxes > 100: # FIXME stop condition
             break
 
     return dict(result)
