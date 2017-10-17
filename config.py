@@ -4,7 +4,7 @@ from collections import defaultdict
 '''simulation configuration - USER INPUT'''
 fragments_per_box = 5
 pool_name = 'return'
-num_players = 1
+num_players = 1000
 
 
 

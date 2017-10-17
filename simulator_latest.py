@@ -1,8 +1,8 @@
 import config
 from pprint import pprint
-from collections import defaultdict
+from collections import defaultdict , Counter
 import random
-
+import plot
 import pool
 import inventory
 
@@ -55,13 +55,30 @@ def simulate(num_players):
         result.append(one_player)
     return result
 
-def plot(result):
-    print('Plot matplotlib:')
+'''when do play get their first hero'''
+def plot_first_hero_box(result):
     pprint(result)
+    first_hero_box=[]
+    for boxes in result:
+        first_hero_box.append(min(boxes))
+    c = Counter(first_hero_box)
+    xs = []
+    ys = []
+    for x,y in c.items():
+        xs.append(x)
+        ys.append(y)
+
+    plot.my_plot(xs,ys)
+
+'''who is the first hero'''
+def plot_first_hero_name(result):
+    pprint(result)
+    pass
+
 
 def main():
     result = simulate(config.num_players)
-    plot(result)
+    plot_first_hero_box(result)
 
 if __name__ == '__main__':
     main()
