@@ -1,6 +1,6 @@
 import config
 from pprint import pprint
-from collections import defaultdict , Counter
+from collections import defaultdict , Counter, OrderedDict
 import random
 import plot
 import pool
@@ -57,28 +57,34 @@ def simulate(num_players):
 
 '''when do play get their first hero'''
 def plot_first_hero_box(result):
-    pprint(result)
     first_hero_box=[]
     for boxes in result:
         first_hero_box.append(min(boxes))
-    c = Counter(first_hero_box)
-    xs = []
-    ys = []
-    for x,y in c.items():
-        xs.append(x)
-        ys.append(y)
+    d = OrderedDict(sorted(Counter(first_hero_box).items()))
+    print(d)
 
-    plot.my_plot(xs,ys)
+    plot.plot_bar_dict(d)
 
-'''who is the first hero'''
+'''who is the first hero'''  #FIXME cannot plot when getting two heroes from opening one box
 def plot_first_hero_name(result):
-    pprint(result)
-    pass
+    first_hero_name=[]
+    for boxes in result:
+        print(boxes)
+        first_hero_name.append(*boxes[min(boxes)]) #FIXME, get value instead of key
+    d = dict(Counter(first_hero_name))
+    print(d)
+    plot.plot_bar_dict(d)
+
+def do_plot(plot_name, result):
+    if plot_name == 'first_hero_box':
+        plot_first_hero_box(result)
+    if plot_name == 'first_hero_name':
+        plot_first_hero_name(result)
 
 
 def main():
     result = simulate(config.num_players)
-    plot_first_hero_box(result)
+    do_plot(config.plot_name, result)
 
 if __name__ == '__main__':
     main()
