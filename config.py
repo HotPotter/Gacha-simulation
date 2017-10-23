@@ -2,11 +2,10 @@ import json
 from collections import defaultdict
 
 '''simulation configuration - USER INPUT'''
-fragments_per_box = 2
+fragments_per_box = 4
 pool_name = 'remove'  # call hero factory, choose 'return' or 'remove*
-num_players = 10
+num_players = 20
 plot_name = 'first_hero_box' # choose between 'first_hero_box' and 'first_hero_name*
-
 
 
 '''hero fragments in PickAndRemove pool - USER INPUT'''
