@@ -1,0 +1,11 @@
+,12,13,14,17,18,19,20,21,22,23
+0,,,['tiffy'],,,,,['kimmy'],"['yeti', 'toffee']",['troll']
+1,,,,,,['yeti'],['tiffy'],['troll'],['kimmy'],['toffee']
+2,,['kimmy'],['tiffy'],,,,,['troll'],['toffee'],['yeti']
+3,,,,,['kimmy'],,,"['troll', 'tiffy']",['toffee'],['yeti']
+4,,,,['tiffy'],,,,['yeti'],"['toffee', 'troll']",['kimmy']
+5,['kimmy'],,,,,,['toffee'],,"['yeti', 'tiffy']",['troll']
+6,,,,,['tiffy'],,,['kimmy'],"['yeti', 'toffee']",['troll']
+7,,,,,,,['tiffy'],['toffee'],"['kimmy', 'troll']",['yeti']
+8,,,,,,['kimmy'],['toffee'],['troll'],['yeti'],['tiffy']
+9,,,,,,,,"['yeti', 'kimmy']","['toffee', 'troll']",['tiffy']

@@ -4,7 +4,7 @@ from collections import defaultdict
 '''simulation configuration - USER INPUT'''
 fragments_per_box = 2
 pool_name = 'remove'  # call hero factory, choose 'return' or 'remove*
-num_players = 1000
+num_players = 10
 plot_name = 'first_hero_box' # choose between 'first_hero_box' and 'first_hero_name*
 
 

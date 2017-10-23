@@ -6,6 +6,7 @@ import random
 import plot
 import pool
 import inventory
+import convert_csv
 
 def has_reward(): # FIXME need to be replaced by box giving mechanism
     if random.randint(1, 1):
@@ -62,7 +63,6 @@ def plot_first_hero_box(result):
     for boxes in result:
         first_hero_box.append(min(boxes))
     d = OrderedDict(sorted(Counter(first_hero_box).items()))
-    print(d)
 
     plot.plot_bar_dict(d)
 
@@ -70,10 +70,9 @@ def plot_first_hero_box(result):
 def plot_first_hero_name(result):
     first_hero_name=[]
     for boxes in result:
-        print(boxes)
         first_hero_name.append(*boxes[min(boxes)]) #FIXME, get value instead of key
     d = dict(Counter(first_hero_name))
-    print(d)
+    #print(d)
     plot.plot_bar_dict(d)
 
 def do_plot(plot_name, result):
@@ -85,7 +84,8 @@ def do_plot(plot_name, result):
 
 def main():
     result = simulate(config.num_players)
-    do_plot(config.plot_name, result)
+    #do_plot(config.plot_name, result)
+    convert_csv.output_csv(result) # write result to csv file
 
 if __name__ == '__main__':
     main()
