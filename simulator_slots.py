@@ -1,7 +1,7 @@
 from collections import defaultdict
 import random
 import config
-import pool
+import draw_logic
 from pprint import pprint
 import convert_csv
 
@@ -14,6 +14,7 @@ class BoxSim():
         self.num_boxes = 0
         self.result = defaultdict(list)
         self.get_reward()
+        self.pool = 0 #select pool
 
 
     # def simulate(self): # FIXME, 不同的停止条件
@@ -38,24 +39,16 @@ class BoxSim():
 
         self.update_result(self.inventory)
 
-    # def get_pool(self): # pick and remove
-    #     '''英雄奖池'''
-    #     pool = []
-    #     for hero_name, num in self.heroes.items():
-    #         pool += [hero_name] * num
-    #     random.shuffle(pool)
-    #     self.hero_pool = pool
-
     # FIXME, util function
     def has_reward(self):
-        if random.randint(0, 1):
+        if random.randint(1, 1):
             return True
         else:
             return False
 
 
     def get_reward(self):  #draw pieces from the pool
-        reward = pool.PoolFactory.create_pool(config.pool_name).random_choice(pick=self.fragments_per_slot)
+        reward = draw_logic.PoolFactory.create_pool(config.pool_name).random_choice(pick=self.fragments_per_slot)
         return reward
 
 
