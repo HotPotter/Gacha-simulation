@@ -1,12 +1,14 @@
+import pool
 import config
 from pprint import pprint
 from collections import defaultdict , Counter, OrderedDict
 '''import external files'''
 import random
 import plot
-import pool
+
 import inventory
 import convert_csv
+
 
 def has_reward(): # FIXME need to be replaced by box giving mechanism
     if random.randint(1, 1):
@@ -18,12 +20,12 @@ def simulate_open_boxes():
     result = defaultdict(list)
     num_boxes = 0
     player_inventory = inventory.Inventory()
-    hero_pool = pool.PoolFactory.create_pool(config.pool_name) # modify in Config
+    hero_pool = pool.PoolFactory.create_pool(config.pool_name)
 
     while True:
         num_boxes += 1
         if has_reward():
-            reward = hero_pool.random_choice(pick=config.fragments_per_box)
+            reward = hero_pool.random_choice(pick=config.fragments_per_slot)
             player_inventory.update(reward)
 
         update_result(result, player_inventory, num_boxes)
@@ -31,7 +33,7 @@ def simulate_open_boxes():
         #print(result) # print hero formation after each box
         #print(reward) # print fragments drawn from each box
 
-        if num_boxes > 100: # FIXME stop condition
+        if num_boxes > 40: # FIXME stop condition
             break
 
     return dict(result)
@@ -45,6 +47,7 @@ def update_result(result, inventory, num_boxes):
             formed_heroes += more_heroes
 
         if hero_name in formed_heroes:
+            #result[num_boxes].append('booster')
             continue
 
         if num_fragments >= config.heroes[hero_name]: # calculate the formation of a hero
@@ -57,7 +60,11 @@ def simulate(num_players):
         result.append(one_player)
     return result
 
+
+
+'''PLOT'''
 '''when do play get their first hero'''
+"""
 def plot_first_hero_box(result):
     first_hero_box=[]
     for boxes in result:
@@ -81,11 +88,14 @@ def do_plot(plot_name, result):
     if plot_name == 'first_hero_name':
         plot_first_hero_name(result)
 
+"""
 
 def main():
     result = simulate(config.num_players)
     #do_plot(config.plot_name, result)
-    convert_csv.output_csv(result) # write result to csv file
+    pprint(result, width=200)
+    convert_csv.output_csv_all_players(result) # write result to csv file, all players one sheet
+    #convert_csv.output_csv_one_player(result)
 
 if __name__ == '__main__':
     main()

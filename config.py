@@ -1,19 +1,42 @@
 import json
-from collections import defaultdict
-
-'''simulation configuration - USER INPUT'''
-fragments_per_box = 4
-pool_name = 'remove'  # call hero factory, choose 'return' or 'remove*
-num_players = 20
-plot_name = 'first_hero_box' # choose between 'first_hero_box' and 'first_hero_name*
+import pool_selections as p
+from pprint import pprint
 
 
-'''hero fragments in PickAndRemove pool - USER INPUT'''
-heroes_p_remove = {"tiffy":5, "kimmy":5, "yeti":10, "troll":10, "toffee":15}
+
+'''BoxSimA configuration - USER INPUT'''
+a_fragments_per_slot = 1
+a_draw_logic_name = 'return'  # call hero factory, choose 'return' or 'remove*
+a_pool_name = p.coins  # get from pool_selection
+
+'''BoxSimB configuration - USER INPUT'''
+b_fragments_per_slot = 1
+b_draw_logic_name = 'return'  # call hero factory, choose 'return' or 'remove*
+b_pool_name = p.heroes_1  # get from pool_selection
+
+
+
+
+#num_players = 1
+#plot_name = 'first_hero_box' # choose between 'first_hero_box' and 'first_hero_name*
+
+
+
+
+
+
+
+
+
+# FIXME stop condition choices here
+
+
+''' fragments in PickAndRemove pool - USER INPUT'''
+heroes_p_remove = {"tiffy":5, "kimmy":5, "yeti":5, "troll":5, "toffee":5, "licorice":5}
 
 
 '''hero fragment drop probability in PickAndReturn pool - USER INPUT'''
-heroes_p_return= {"tiffy":5, "kimmy":5, "yeti":10, "troll":10, "toffee":15}
+heroes_p_return= {"tiffy":50, "kimmy":5, "yeti":10, "troll":10, "toffee":15}
 
 
 '''Load hero configuration'''
