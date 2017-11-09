@@ -7,14 +7,19 @@ from pprint import pprint
 '''BoxSimA configuration - USER INPUT'''
 a_fragments_per_slot = 1
 a_draw_logic_name = 'return'  # call hero factory, choose 'return' or 'remove*
-a_pool_name = p.coins  # get from pool_selection
+a_pool_name = p.initial_1  # get from pool_selection
+slots_num = 2 # number of slots in the box
+boxes_num = 3 # number of boxes to open
 
-'''BoxSimB configuration - USER INPUT'''
-b_fragments_per_slot = 1
-b_draw_logic_name = 'return'  # call hero factory, choose 'return' or 'remove*
-b_pool_name = p.heroes_1  # get from pool_selection
+# '''BoxSimB configuration - USER INPUT'''
+# b_fragments_per_slot = 1
+# b_draw_logic_name = 'return'  # call hero factory, choose 'return' or 'remove*
+# b_pool_name = p.initial_1  # get from pool_selection
 
-
+# '''BoxSimC configuration - USER INPUT'''
+# c_fragments_per_slot = 1
+# c_draw_logic_name = 'return'  # call hero factory, choose 'return' or 'remove*
+# c_pool_name = p.initial_1  # get from pool_selection
 
 
 #num_players = 1

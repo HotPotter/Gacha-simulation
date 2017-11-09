@@ -1,34 +1,64 @@
 
 {  "heroes":[
         {
-            "name": "tiffy",
+            "name": "NUTCRACKER",
             "id": 1,
             "fragment": 2
         },
         {
-            "name": "kimmy",
+            "name": "MISTY",
+            "id": 1,
+            "fragment": 60
+        },
+        {
+            "name": "ODUS",
+            "id": 1,
+            "fragment": 60
+        },
+        {
+            "name": "t1",
             "id": 1,
             "fragment": 2
         },
         {
-            "name": "yeti",
+            "name": "t2",
             "id": 1,
-            "fragment": 2
+            "fragment": 60
         },
         {
-            "name": "troll",
+            "name": "t3",
             "id": 1,
-            "fragment": 2
+            "fragment": 80
         },
         {
-            "name": "toffee",
+            "name": "y1",
             "id": 1,
-            "fragment": 2
+            "fragment": 40
         },
         {
-            "name": "licorice",
+            "name": "y2",
             "id": 1,
-            "fragment": 2
+            "fragment": 60
+        },
+        {
+            "name": "y3",
+            "id": 1,
+            "fragment": 80
+        },
+        {
+            "name": "n1",
+            "id": 1,
+            "fragment": 40
+        },
+        {
+            "name": "n2",
+            "id": 1,
+            "fragment": 60
+        },
+        {
+            "name": "n3",
+            "id": 1,
+            "fragment": 80
         }
     ]
 }

@@ -5,14 +5,26 @@ import config
 
 class PickAndReturn():
     def __init__(self, pool_name):
-        self.item_name = [] #hero name
+        self.item_name = [] #item name
         self.ps = [] #drop probability
         for i, p in pool_name:
             self.item_name.append(i)
             self.ps.append(p)
 
-    def random_choice(self, pick): #FIXME, pick needs to read from config
+        #self.update_pool(inventory)
+
+    # def update_pool(self, inventory):
+    #     self.initial_pool = p.initial_1
+    #     if item in inventory.items():
+    #         pool_name.pop('item',none)
+    #         pool_name.update(p.extension_1[self.switch_count])
+    #         self.switch_count +=1
+    #     return pool_name
+
+    def random_choice(self, pick): #FIXME, need to update pool (not used in simulation yet)
         return random.choices(self.item_name, self.ps, k=pick)
+
+
 
 
 class PickAndRemove():  # FIXME need to update pool
@@ -46,10 +58,13 @@ class LogicFactory():
 """
 
 
+
 def logic_factory(draw_logic_name, pool_name):
+
     pool_content= [i for i in pool_name.items()]
     if draw_logic_name == 'remove':
         pool = PickAndRemove(pool_content)
+
 
     elif draw_logic_name == 'return':
         pool = PickAndReturn(pool_content)

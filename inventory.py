@@ -4,7 +4,6 @@ from collections import defaultdict
 class Inventory():
     def __init__(self):
         self.inventory = defaultdict(int)
-        self.coins = 1000
 
     def update(self, reward):
         for hero_name in reward:
