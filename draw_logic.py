@@ -11,18 +11,10 @@ class PickAndReturn():
             self.item_name.append(i)
             self.ps.append(p)
 
-        #self.update_pool(inventory)
-
-    # def update_pool(self, inventory):
-    #     self.initial_pool = p.initial_1
-    #     if item in inventory.items():
-    #         pool_name.pop('item',none)
-    #         pool_name.update(p.extension_1[self.switch_count])
-    #         self.switch_count +=1
-    #     return pool_name
-
     def random_choice(self, pick): #FIXME, need to update pool (not used in simulation yet)
         return random.choices(self.item_name, self.ps, k=pick)
+    #def delta_pool(self,reward):
+
 
 
 

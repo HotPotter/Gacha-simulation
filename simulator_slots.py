@@ -18,14 +18,19 @@ class BoxSimA():
         self.switch_count = 0
 
     def update_pool(self, completion): # FIXME, update pool, start with initial value read from config
-        # for item in p.resource_initial:
-        #     self.pool[item] = p.resource_all[item]
+
+        pool_add = p.resource_expansion
 
         for item in self.completion:
             try:
-                self.pool[item]
-                self.pool.pop(item)
-                new_item_name = p.resource_expansion[self.switch_count]
+                self.pool[item] # check if completed item is in the pool
+                self.pool.pop(item)  # remove completed item from pool
+                if item == 'NUTCRACKER':
+                    pool_add += p.resource_costume_nc
+                else:
+                    pass
+                random.shuffle(pool_add)
+                new_item_name = pool_add[self.switch_count]
                 self.pool[new_item_name] = p.resource_all[new_item_name]
                 self.switch_count +=1
             except:
@@ -33,43 +38,17 @@ class BoxSimA():
         print("current pool:", self.pool) # Print current pool
 
         return self.pool
+
+# """change PS after each draw"""
 #
-
-
-
-    # def simulate(self): # FIXME, 不同的停止条件
-    #     self.simulate_until_pool_empty()
-
-    # def simulate_n(self, n):
-    #     for _ in range(n):
-    #         self.simulate_one_box()
-    #
-    # def simulate_until_pool_empty(self):
-    #     while True:
-    #         self.simulate_one_box()
-    #
-    #         if len(self.hero_pool) == 0:
-    #             break
-    # def print_attri(self):
-    #     print(self.num_boxes)
-    #
-    # def simulate_one_box(self):
-    #     self.num_boxes += 1
-    #     if self.has_reward():
-    #         reward = self.get_reward()
-    #         self.update_inventory(reward)
-    #
-    #     self.update_result(self.inventory)
-    #     print("inventory:", self.inventory)
-
-
-    # FIXME, util function
-    def has_reward(self):
-        if random.randint(1, 1):
-            return True
-        else:
-            return False
-
+#     def delta_pool(self,reward):
+#         dict_pool=p.resource_all
+#         delta = 1
+#         for item in reward:
+#             dict_pool[item] += delta
+#         return dict_pool
+#
+#     # FIXME, util function
 
     def get_reward(self, pool):  #draw pieces from the pool
         self.reward = draw_logic.logic_factory(config.a_draw_logic_name, self.pool).random_choice(pick=config.a_fragments_per_slot)
@@ -86,21 +65,13 @@ class BoxSimA():
 
     def complete_item(self, inventory):  #sort out reward, create item,replace duplicates
         for item_name, num_fragments in self.inventory.items():
-            if item_name in self.heroes.items():
+            if item_name in self.completion:
                 continue
             else:
 
                 if num_fragments == self.heroes[item_name]:
                     self.completion.append(item_name)
 
-            #items = []
-            # for more_items in self.completion.values():
-            #     items += more_items
-            # if item_name in items:
-            #     continue
-            # else:
-            #     if num_fragments == self.heroes[item_name]:
-            #         self.completion[self.num_boxes].append(item_name)
         return self.completion
 
 

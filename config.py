@@ -1,13 +1,12 @@
 import json
 import pool_selections as p
-from pprint import pprint
+
 
 
 
 '''BoxSimA configuration - USER INPUT'''
 a_fragments_per_slot = 1
 a_draw_logic_name = 'return'  # call hero factory, choose 'return' or 'remove*
-a_pool_name = p.initial_1  # get from pool_selection
 slots_num = 2 # number of slots in the box
 boxes_num = 3 # number of boxes to open
 
@@ -28,6 +27,30 @@ boxes_num = 3 # number of boxes to open
 
 
 
+# def simulate(self): # FIXME, different stop conditions
+#     self.simulate_until_pool_empty()
+
+# def simulate_n(self, n):
+#     for _ in range(n):
+#         self.simulate_one_box()
+#
+# def simulate_until_pool_empty(self):
+#     while True:
+#         self.simulate_one_box()
+#
+#         if len(self.hero_pool) == 0:
+#             break
+# def print_attri(self):
+#     print(self.num_boxes)
+#
+# def simulate_one_box(self):
+#     self.num_boxes += 1
+#     if self.has_reward():
+#         reward = self.get_reward()
+#         self.update_inventory(reward)
+#
+#     self.update_result(self.inventory)
+#     print("inventory:", self.inventory)
 
 
 
