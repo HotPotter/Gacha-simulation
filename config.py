@@ -1,14 +1,15 @@
 import json
 import pool_selections as p
 
-
+'''calculate number of boxes '''
 
 
 '''BoxSimA configuration - USER INPUT'''
 a_fragments_per_slot = 1
 a_draw_logic_name = 'return'  # call hero factory, choose 'return' or 'remove*
-slots_num = 2 # number of slots in the box
-boxes_num = 3 # number of boxes to open
+slots_num = 3 # number of slots in the box
+boxes_num = 30 # number of boxes to open
+prob_delta = 20 #probablility change after each draw
 
 # '''BoxSimB configuration - USER INPUT'''
 # b_fragments_per_slot = 1
@@ -74,6 +75,8 @@ hero_data=f_hero['heroes']
 heroes = {}
 for hero in hero_data:
     heroes[hero['name']] = hero['fragment']
+
+
 
 
 

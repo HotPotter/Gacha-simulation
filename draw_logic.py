@@ -4,10 +4,10 @@ import random
 import config
 
 class PickAndReturn():
-    def __init__(self, pool_name):
+    def __init__(self, pool):
         self.item_name = [] #item name
         self.ps = [] #drop probability
-        for i, p in pool_name:
+        for i, p in pool:
             self.item_name.append(i)
             self.ps.append(p)
 
@@ -16,11 +16,8 @@ class PickAndReturn():
     #def delta_pool(self,reward):
 
 
-
-
-
 class PickAndRemove():  # FIXME need to update pool
-    def __init__(self, pool_name):
+    def __init__(self, pool):
         pool = []
         for item_name, num in pool_name:
             pool += [item_name] * num
@@ -51,9 +48,9 @@ class LogicFactory():
 
 
 
-def logic_factory(draw_logic_name, pool_name):
+def logic_factory(draw_logic_name, pool):
 
-    pool_content= [i for i in pool_name.items()]
+    pool_content= [i for i in pool.items()]
     if draw_logic_name == 'remove':
         pool = PickAndRemove(pool_content)
 

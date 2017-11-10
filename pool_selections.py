@@ -1,6 +1,6 @@
 """complete pool"""
-resource_all = {"NUTCRACKER":5,
-                "t1":5,
+resource_all = {"NUTCRACKER":10,
+                "t1":1,
                 "y1":1,
                 "t2":1,
                 "MISTY":1,
@@ -8,12 +8,12 @@ resource_all = {"NUTCRACKER":5,
                 "t3":1,
                 "y2":1,
                 "y3":1,
-                "n1":10,
-                "n2":10,
-                "n3":10}
+                "n1":1,
+                "n2":1,
+                "n3":1}
 
 """ INITIAL POOL - USER INPUT"""
-initial_1 = {"NUTCRACKER":5, "t1":5, "y1":1, "t2":1}
+resource_initial = ['NUTCRACKER', 't1', 'y1', 't2']
 
 
 """EXTENSION POOL - USER INPUT"""

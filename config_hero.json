@@ -8,12 +8,12 @@
         {
             "name": "MISTY",
             "id": 1,
-            "fragment": 60
+            "fragment": 2
         },
         {
             "name": "ODUS",
             "id": 1,
-            "fragment": 60
+            "fragment": 2
         },
         {
             "name": "t1",
@@ -23,32 +23,32 @@
         {
             "name": "t2",
             "id": 1,
-            "fragment": 60
+            "fragment": 2
         },
         {
             "name": "t3",
             "id": 1,
-            "fragment": 80
+            "fragment": 2
         },
         {
             "name": "y1",
             "id": 1,
-            "fragment": 40
+            "fragment": 2
         },
         {
             "name": "y2",
             "id": 1,
-            "fragment": 60
+            "fragment": 2
         },
         {
             "name": "y3",
             "id": 1,
-            "fragment": 80
+            "fragment": 2
         },
         {
             "name": "n1",
             "id": 1,
-            "fragment": 40
+            "fragment": 2
         },
         {
             "name": "n2",
