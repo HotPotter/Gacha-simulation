@@ -1,0 +1,71 @@
+{
+  "heroes": [
+    {
+      "name": "TIFFY",
+      "fragment": 2
+    },
+    {
+      "name": "YETI",
+      "fragment": 2
+    },
+    {
+      "name": "NUTCRACKER",
+      "fragment": 2
+    },
+    {
+      "name": "MISTY",
+      "fragment": 2
+    },
+    {
+      "name": "ODUS",
+      "fragment": 2
+    }
+  ],
+  "costumes": [
+    {
+      "name": "T1",
+      "hero": "TIFFY",
+      "fragment": 2
+    },
+    {
+      "name": "T2",
+      "hero": "TIFFY",
+      "fragment": 2
+    },
+    {
+      "name": "T3",
+      "hero": "TIFFY",
+      "fragment": 2
+    },
+    {
+      "name": "Y1",
+      "hero": "YETI",
+      "fragment": 2
+    },
+    {
+      "name": "Y2",
+      "hero": "YETI",
+      "fragment": 2
+    },
+    {
+      "name": "Y3",
+      "hero": "YETI",
+      "fragment": 2
+    },
+    {
+      "name": "N1",
+      "hero": "NUTCRACKER",
+      "fragment": 2
+    },
+    {
+      "name": "N2",
+      "hero": "NUTCRACKER",
+      "fragment": 60
+    },
+    {
+      "name": "N3",
+      "hero": "NUTCRACKER",
+      "fragment": 80
+    }
+  ]
+}

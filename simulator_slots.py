@@ -1,61 +1,60 @@
 from collections import defaultdict
 import random
-import config
 from pprint import pprint
 import convert_csv
-import pool_selections as p
+import config
+
 
 
 class BoxSimA():
-    def __init__(self):
-        self.heroes = config.heroes
+    def __init__(self,
+                 heroes,
+                 pool_list,
+                 draw_probability_map,
+                 pool_add,
+                 completion_map
+                 ):
+        self.heroes = heroes
         self.inventory = defaultdict(int)
-        self.num_boxes = config.boxes_num
         self.completion = list()
         self.reward = list()
-        self.pool_list = p.resource_initial  # initial pool list
-        self.rate = p.resource_all
+        self.pool_list = pool_list  # initial pool list
+        self.draw_probability_map = draw_probability_map
         self.pool = defaultdict(int)
-        self.switch_count = 0
+        self.pool_add = pool_add
+        self.completion_map = completion_map
 
     def update_rate(self):  # update drop rate, apply delta
         delta = config.prob_delta
-        for item in self.reward:
-            self.rate[item] += delta
-        return self.rate
+        for item in self.reward:  # FIXme, not likely to have more than 1 piece in a slot
+            self.draw_probability_map[item] += delta
+        return self.draw_probability_map
 
-    def create_pool(self):
-        # print('current pool list', self.pool_list)
+    def create_pool(self):  # create pool according to pool_list and probability map
         self.pool = defaultdict()
         try:
             for item in self.pool_list:
-                self.pool[item] = self.rate[item]
+                self.pool[item] = self.draw_probability_map[item]
         except:
             raise ValueError('Your hand is empty!')
         return self.pool
 
-    def update_pool_list(self):  # FIXME, update pool, start with initial value read from config
-        pool_add = p.resource_expansion
+    def update_pool_list(self):
+        pool_add = self.pool_add
         for item in self.completion:
             if item in self.pool_list:
                 self.pool_list.remove(item)
                 if item == 'NUTCRACKER':
-                    pool_add += p.resource_costume_nc
-                else:
-                    pass
+                    pool_add += config.resource_costume_nc
                 random.shuffle(pool_add)
                 if len(pool_add) > 0:
                     self.pool_list.append(pool_add.pop(0))
-                else:
-                    print('yoo')
-                # except:
-                #     print('no new item')
-
+                else:  # when all items have been added into the pool
+                    pass
             else:
                 continue
-        # print('current pool list:', self.pool_list)
+        # print('pool add',pool_add)
         return self.pool_list
-
 
     def get_reward(self):  # draw pieces from the pool
         item_name = []
@@ -68,10 +67,6 @@ class BoxSimA():
             self.reward = random.choices(item_name, item_prob, k=config.a_fragments_per_slot)
         except Exception as e:
             print(e)
-
-        # self.reward = draw_logic.logic_factory(config.a_draw_logic_name, self.pool).random_choice(
-        #     pick=config.a_fragments_per_slot)
-        # print("reward is:", self.reward)
         return self.reward
 
     def update_inventory(self):
@@ -82,7 +77,7 @@ class BoxSimA():
                 self.inventory[val] = 1
         return self.inventory
 
-    def complete_item(self):  # sort out reward, create item,replace duplicates
+    def complete_item(self):  # sort out reward, complete items if possible
         for item_name, num_fragments in self.inventory.items():
             if item_name in self.completion:
                 continue
@@ -96,37 +91,54 @@ class BoxSimA():
     def get_completion(self):
         return list(self.completion)
 
+    def update_completion_map(self):
+        for i in self.completion_map:
+            if i in self.completion:
+                self.completion_map[i]=1
+        #print(self.completion_map)
+        return self.completion_map
 
-"""Put all slots together"""
+def create_player(): # create instance from class
+    player_x = BoxSimA(config.heroes.copy(),
+                       config.resource_initial[:],
+                       config.resource_all.copy(),
+                       config.resource_expansion[:],
+                       config.item_map.copy())
+    return player_x
 
 
-def simulate_one_player():  # simulate every draw, no create hero
-    sim_1 = BoxSimA()
-    result = []
-    # sim_1.pool_list = p.resource_initial # initiate the pool
-    for num_boxes in range(1, sim_1.num_boxes + 1):  # FIXME stop condition
+def simulate_one_player(player_x):
+    result_one_player = []
+    num_boxes = 1
+    completion_list = []
+    while len(player_x.pool_list) > 0:  # FIXME stop condition, draw until pool is empty
         result_one_box = []
         for n in range(0, config.slots_num):  # get the number of slots in the box
-            sim_1.create_pool()
-            # print('start pool:', sim_1.pool)
-            slot_n = sim_1.get_reward()
-            # print("reward is:", slot_n)
-            sim_1.update_rate()
-            sim_1.update_inventory()
-            sim_1.complete_item()
-            sim_1.update_pool_list()
-            # print('updated pool list', sim_1.pool_list)
-            # print('end')
+            player_x.create_pool()
+            slot_n = player_x.get_reward()
+            player_x.update_rate()
+            player_x.update_inventory()
+            player_x.complete_item()
+            player_x.update_pool_list()
             result_one_box.append(*slot_n)
-        result_all = (num_boxes, *result_one_box)
-        result.append(result_all)
-    pprint(result)
-    # convert_csv.output_csv_one_player(result) # FIXME, need to adapt to slots number
+        completion_dict = player_x.update_completion_map()
+        completion_list = [v for i,v in completion_dict.items()]
+        #pprint(completion_list, width=300)
+        result_all = (num_boxes, *result_one_box, *completion_list)
+        result_one_player.append(result_all)
+        num_boxes += 1
 
+    #pprint(result_one_player, width=200)
+    #convert_csv.output_csv_one_player(result_one_player)
+    return result_one_player
 
-# def main():
-#     result = simulate(1)
-#     print('result: ', result)
 
 if __name__ == '__main__':
-    simulate_one_player()
+    all_players = []
+    for i in range(1, config.player_num+1):
+        player = create_player()
+        result_one_player = simulate_one_player(player)
+        all_players += result_one_player
+        pprint(all_players)
+        #header = convert_csv.get_header()
+        convert_csv.output_csv_all_players(i for i in all_players)
