@@ -27,9 +27,9 @@ class BoxSimA():
     def update_rate(self):  # update drop rate, apply delta
         delta = c.prob_delta
         for item in self.reward:  # FIXme, not likely to have more than 1 piece in a slot
-           # if self.draw_probability_map[item]< (c.resource_all[i]+ c.prob_delta_cap):
-            self.draw_probability_map[item] += delta
-        #pprint(self.draw_probability_map)
+            if self.draw_probability_map[item]< (c.resource_all[item]+ c.prob_delta_cap):
+                self.draw_probability_map[item] += delta
+        #pprint(self.draw_probability_map, width=300)
         return self.draw_probability_map
 
     def create_pool(self):  # create pool according to pool_list and probability map
@@ -139,7 +139,6 @@ def simulate_one_player(player_x):
         num_boxes += 1
 
     return result_one_player
-
 
 if __name__ == '__main__':
     all_players = []
