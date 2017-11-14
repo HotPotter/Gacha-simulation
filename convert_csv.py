@@ -2,7 +2,7 @@ import pandas as pd
 import config
 
 def get_header():
-    header_start = ['box']
+    header_start = ['player id','box']
     header_end = [i for i in config.item_map ]
     for i in range(1, config.slots_num+1):
         slot = ['slot%s'%i]

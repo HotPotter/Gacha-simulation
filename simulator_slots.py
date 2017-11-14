@@ -135,10 +135,15 @@ def simulate_one_player(player_x):
 
 if __name__ == '__main__':
     all_players = []
+    player_id = 0
     for i in range(1, config.player_num+1):
         player = create_player()
         result_one_player = simulate_one_player(player)
-        all_players += result_one_player
+        result_one_player_l = [list(i) for i in result_one_player]
+        for i in result_one_player_l:
+            i.insert(0,player_id)
+        all_players += result_one_player_l
+        player_id+= 1
         pprint(all_players)
-        #header = convert_csv.get_header()
+        header = convert_csv.get_header()
         convert_csv.output_csv_all_players(i for i in all_players)

@@ -4,7 +4,7 @@ import json
 a_fragments_per_slot = 1 # number of fragments in one slot
 slots_num = 3 # number of slots in a box
 prob_delta = 1 # Probability change after each draw
-player_num = 100 # number of players to simulate
+player_num = 10 # number of players to simulate
 
 
 
