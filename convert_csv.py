@@ -3,12 +3,11 @@ import config
 
 def get_header():
     header_start = ['player id','box']
-    header_end = [i for i in config.item_map ]
+    header_end = [i for i in config.inventory_map]
     for i in range(1, config.slots_num+1):
         slot = ['slot%s'%i]
         header_start += slot
     header = header_start + header_end
-    print(header)
     return header
 
 

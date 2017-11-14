@@ -2,17 +2,18 @@ import json
 
 '''BoxSimA configuration - USER INPUT'''
 a_fragments_per_slot = 1 # number of fragments in one slot
-slots_num = 3 # number of slots in a box
+slots_num = 2 # number of slots in a box
 prob_delta = 1 # Probability change after each draw
-player_num = 10 # number of players to simulate
+prob_delta_cap = 10 # Cap for probability change
+player_num = 1 # number of players to simulate
 
 
 
 """ INITIAL POOL - USER INPUT"""
-resource_initial = ['NUTCRACKER', 't1', 'y1', 't2']
+resource_initial = ['NUTCRACKER', 't1', 'y1', 't2','y3','t3']
 
 """EXTENSION POOL - USER INPUT"""
-resource_expansion = ['MISTY', 'ODUS', 't3', 'y2', 'y3']
+resource_expansion = ['ODUS', 'y2','MISTY']
 
 """EXTENSION COSTUME POOL"""
 resource_costume_nc = ['n1', 'n2', 'n3']
@@ -32,6 +33,7 @@ resource_all = {"NUTCRACKER":10,
                 "n1":10,
                 "n2":10,
                 "n3":10}
+
 
 """Load hero configuration"""
 
@@ -56,4 +58,17 @@ item_map = {"NUTCRACKER":0,
                 "n2":0,
                 "n3":0}
 
+"""INVENTORY MAP"""
 
+inventory_map = {"NUTCRACKER":0,
+                "t1":0,
+                "y1":0,
+                "t2":0,
+                "MISTY":0,
+                "ODUS":0,
+                "t3":0,
+                "y2":0,
+                "y3":0,
+                "n1":0,
+                "n2":0,
+                "n3":0}
