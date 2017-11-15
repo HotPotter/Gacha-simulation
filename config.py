@@ -44,31 +44,12 @@ for hero in hero_data:
     heroes[hero['name']] = hero['fragment']
 
 """COMPLETION MAP"""
+item_map = {}
+for i in resource_all:
+    item_map[i]= 0
 
-item_map = {"NUTCRACKER":0,
-                "t1":0,
-                "y1":0,
-                "t2":0,
-                "MISTY":0,
-                "ODUS":0,
-                "t3":0,
-                "y2":0,
-                "y3":0,
-                "n1":0,
-                "n2":0,
-                "n3":0}
 
 """INVENTORY MAP"""
-
-inventory_map = {"NUTCRACKER":0,
-                "t1":0,
-                "y1":0,
-                "t2":0,
-                "MISTY":0,
-                "ODUS":0,
-                "t3":0,
-                "y2":0,
-                "y3":0,
-                "n1":0,
-                "n2":0,
-                "n3":0}
+inventory_map = {}
+for i in resource_all:
+    inventory_map[i] = 0
