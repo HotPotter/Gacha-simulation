@@ -2,60 +2,60 @@
   "heroes": [
     {
       "name": "TIFFY",
-      "fragment": 2
+      "fragment": 60
     },
     {
       "name": "YETI",
-      "fragment": 2
+      "fragment": 60
     },
     {
       "name": "NUTCRACKER",
-      "fragment": 2
+      "fragment": 60
     },
     {
       "name": "MISTY",
-      "fragment": 2
+      "fragment": 60
     },
     {
       "name": "ODUS",
-      "fragment": 2
+      "fragment": 60
     }
   ],
   "costumes": [
     {
       "name": "T1",
       "hero": "TIFFY",
-      "fragment": 2
+      "fragment": 40
     },
     {
       "name": "T2",
       "hero": "TIFFY",
-      "fragment": 2
+      "fragment": 60
     },
     {
       "name": "T3",
       "hero": "TIFFY",
-      "fragment": 2
+      "fragment": 80
     },
     {
       "name": "Y1",
       "hero": "YETI",
-      "fragment": 2
+      "fragment": 40
     },
     {
       "name": "Y2",
       "hero": "YETI",
-      "fragment": 2
+      "fragment": 60
     },
     {
       "name": "Y3",
       "hero": "YETI",
-      "fragment": 2
+      "fragment": 80
     },
     {
       "name": "N1",
       "hero": "NUTCRACKER",
-      "fragment": 2
+      "fragment": 40
     },
     {
       "name": "N2",

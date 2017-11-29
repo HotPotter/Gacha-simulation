@@ -3,9 +3,9 @@
 BoxSimA configuration - USER INPUT
 """
 a_fragments_per_slot = 1
-slots_num = 3  # number of slots in the box
-boxes_num = 30  # number of boxes to open
-prob_delta = 20  # probability change after each draw
+slots_num = 4  # number of slots in the box
+boxes_num = 150  # number of boxes to open
+prob_delta = 1  # probability change after each draw
 
 
 
