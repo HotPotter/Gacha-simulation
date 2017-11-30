@@ -7,10 +7,10 @@ from simulator import config
 
 
 header_raw = [i for i, v in config.heroes.items()]*2
+header_raw.insert(0,'box id')
+header_raw.insert(0,'player id')
 header_completion_box = [i for i in range(1,len(config.heroes)+1)]
 header_completion_box.insert(0, 'player id')
-
-
 
 def output_csv_all_players_raw(result):
     data = pd.DataFrame(result)

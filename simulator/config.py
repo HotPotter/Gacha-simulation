@@ -17,7 +17,7 @@ prob_map = pool_config_json['prob_map']
 
 """Load hero configuration"""
 
-f_hero= json.load(open("config/hero_config.json", 'r'))
+f_hero = json.load(open("config/hero_config.json", 'r'))
 hero_data=f_hero['heroes']
 heroes = {}
 for hero in hero_data:

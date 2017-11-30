@@ -38,13 +38,11 @@ def main():
         all_player_completion_names.append(one_player_completion_names)
         player_id += 1  # update player_id
 
-    # convert.output_csv_all_players_completion_box(all_players_completion_box) # 1. write csv of all player, at which box an item is completed
-    simulator.output_handling.output_csv_all_players_trans_interval(
-        all_trans_interval)  # 2. write csv to transposed completion interval
-    simulator.output_handling.output_csv_all_players_completion_names(
-        all_player_completion_names)  # 3. write csv of the order of how each player complete the items
-    # convert.output_csv_all_players_completion_interval(all_players_completion_interval) # 4. write csv of completion interval
-    # convert.output_csv_all_players_raw(all_players_raw) # 5. write csv of raw data, a matrix of all players' inventory change and completion change
+    simulator.output_handling.output_csv_all_players_completion_box(all_players_completion_box) # 1. write csv of all player, at which box an item is completed
+    simulator.output_handling.output_csv_all_players_trans_interval(all_trans_interval)  # 2. write csv to transposed completion interval
+    simulator.output_handling.output_csv_all_players_completion_names(all_player_completion_names)  # 3. write csv of the order of how each player complete the items
+    simulator.output_handling.output_csv_all_players_completion_interval(all_players_completion_interval) # 4. write csv of completion interval
+    simulator.output_handling.output_csv_all_players_raw(all_players_raw) # 5. write csv of raw data, a matrix of all players' inventory change and completion change
 
 
 if __name__ == '__main__':
