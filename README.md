@@ -9,6 +9,6 @@ python -m simulator.run
 ```
 
 ## How to configure:
-update the file 'config/hero_config.json' and 'config/pool_config.py'.
+update the file 'config/hero_config.json' and 'config/pool_config.json'.
 
 
