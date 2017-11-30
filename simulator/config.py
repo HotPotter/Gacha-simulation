@@ -1,46 +1,23 @@
 import json
 
+pool_config_json = json.load(open('config/pool_config.json', 'r'))
+
 '''BoxSimA configuration - USER INPUT'''
-a_fragments_per_slot = 1 # number of fragments in one slot
-slots_num = 2 # number of slots in a box
-prob_delta = 2 # Probability change after each draw
-prob_delta_cap = 30 # Cap for probability change
-player_num = 100 # number of players to simulate
+a_fragments_per_slot = pool_config_json['a_fragments_per_slot']# number of fragments in one slot
+slots_num = pool_config_json['slots_num'] # number of slots in a box
+prob_delta = pool_config_json['prob_delta'] # Probability change after each draw
+prob_delta_cap = pool_config_json['prob_delta_cap'] # Cap for probability change
+player_num = pool_config_json['player_num'] # number of players to simulate
 
 
-""" INITIAL POOL - USER INPUT"""
-pool_config = {"NUTCRACKER": 1,
-                     "t1": 1,
-                     "y1": 0,
-                     "t2": 1,
-                     "MISTY": 0,
-                     "ODUS": 0,
-                     "t3": 1,
-                     "y2": 1,
-                     "y3": 0,
-                     "n1": 'n',
-                     "n2": 'n',
-                     "n3": 'n'}
+pool_config = pool_config_json['pool_config']
 
-
-"""PROBABILITY MAP"""
-prob_map = {"NUTCRACKER":10,
-                "t1":10,
-                "y1":10,
-                "t2":10,
-                "MISTY":10,
-                "ODUS":10,
-                "t3":10,
-                "y2":10,
-                "y3":10,
-                "n1":10,
-                "n2":10,
-                "n3":10}
+prob_map = pool_config_json['prob_map']
 
 
 """Load hero configuration"""
 
-f_hero= json.load(open("config/config_hero.json", 'r'))
+f_hero= json.load(open("config/hero_config.json", 'r'))
 hero_data=f_hero['heroes']
 heroes = {}
 for hero in hero_data:

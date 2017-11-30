@@ -1,0 +1,38 @@
+{
+  "a_fragments_per_slot": 1,
+  "slots_num": 2,
+  "prob_delta": 2,
+  "prob_delta_cap": 30,
+  "player_num": 100,
+
+
+  "pool_config": {
+    "NUTCRACKER": 1,
+    "t1": 1,
+    "y1": 0,
+    "t2": 1,
+    "MISTY": 0,
+    "ODUS": 0,
+    "t3": 1,
+    "y2": 1,
+    "y3": 0,
+    "n1": "n",
+    "n2": "n",
+    "n3": "n"
+  },
+
+  "prob_map": {
+    "NUTCRACKER": 10,
+    "t1": 10,
+    "y1": 10,
+    "t2": 10,
+    "MISTY": 10,
+    "ODUS": 10,
+    "t3": 10,
+    "y2": 10,
+    "y3": 10,
+    "n1": 10,
+    "n2": 10,
+    "n3": 10
+  }
+}
