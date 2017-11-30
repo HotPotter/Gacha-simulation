@@ -3,7 +3,8 @@ Simulate eco system in Legend game
 
 ## Getting Started:
 ```
-git clone
+git clone https://github.int.midasplayer.com/yan-dou/Legend-Simulator.git
+cd Legend-Simulator
 python -m simulator.run
 ```
 
