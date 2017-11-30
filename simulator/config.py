@@ -40,7 +40,7 @@ prob_map = {"NUTCRACKER":10,
 
 """Load hero configuration"""
 
-f_hero= json.load(open("config_hero.json", 'r'))
+f_hero= json.load(open("config/config_hero.json", 'r'))
 hero_data=f_hero['heroes']
 heroes = {}
 for hero in hero_data:
