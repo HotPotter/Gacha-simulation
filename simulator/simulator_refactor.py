@@ -1,9 +1,7 @@
-
-from simulator.objects import *
-from simulator import convert_csv as convert
-
-
 if __name__ == '__main__':
+
+    from simulator.objects import *
+    from simulator import convert_csv as convert
 
     all_players_raw = []
     all_players_completion_box = []
